@@ -1,0 +1,19 @@
+{ 
+  "socials": [
+    {
+      "name": "GitHub",
+      "link": "https://github.com/kingsquill",
+      "icon": "fa-github"
+    },
+    {
+      "name": "Discord",
+      "link": "https://discord.gg/MVEAJMb9jD",
+      "icon": "fa-discord"
+    },
+    {
+      "name": "Twitter",
+      "link": "https://twitter.com/kingsquill",
+      "icon": "fa-twitter"
+    }
+  ]
+}
