@@ -1,4 +1,6 @@
 const htmlmin = require('html-minifier')
+const markdownIt = require('markdown-it');
+const markdownItClass = require('@toycode/markdown-it-class');
 
 const now = String(Date.now())
 
@@ -15,6 +17,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode('version', function () {
     return now
   })
+
+  // Set Markdown default styles
+  const mapping = {
+    h1: ['text-5xl', 'font-serif', 'text-center', 'pb-5'],
+    h2: ['text-4xl', 'font-serif', 'pb-5'],
+    h3: ['text-3xl', 'font-serif', 'pb-4'],
+    h4: ['text-2xl', 'font-serif'],
+    h5: ['text-xl', 'font-serif'],
+    h6: ['text-lg', 'font-serif'],
+  };
+  const md = markdownIt({ linkify: true, html: true });
+  md.use(markdownItClass, mapping);
+  eleventyConfig.setLibrary('md', md);
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

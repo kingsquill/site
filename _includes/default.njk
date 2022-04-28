@@ -10,8 +10,8 @@
     {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-    <link rel="stylesheet" href="css/style.css?v={% version %}"/>
-    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}?v={% version %}"/>
+    <link rel="stylesheet" href="{{ '/css/fontawesome.css' | url }}">
     {% block head %}{% endblock %}
   </head>
   <body class="{% block backgroundImage %}bg-home{% endblock %} bg-top bg-cover bg-fixed">
