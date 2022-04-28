@@ -19,12 +19,11 @@
       <header class="flex p-4 content-center justify-between">
         <a href="/" class="font-heading text-4xl">KQ</a>
         <div class="flex items-center">
-          <a class="p-2 m-2 font-serif hover:underline" href="/philosophy">
-            Philosophy
+          {% for page in collections.header %}
+          <a class="p-2 m-2 font-serif hover:underline" href="{{page.url}}">
+            {{page.data.title}}
           </a>
-          <a class="p-2 m-2 font-serif hover:underline" href="/contribute">
-            Contribute
-          </a>
+          {% endfor %}
           {% for social in site.socials %}
             {% if social.icon %}
               <a class="p-2 m-2" href="{{social.link}}">

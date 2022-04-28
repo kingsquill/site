@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('styles/tailwind.css')
   eleventyConfig.addPassthroughCopy('.nojekyll');
   eleventyConfig.addPassthroughCopy('CNAME');
-  eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' })
+  eleventyConfig.addPassthroughCopy({ '_tmp/style.css': 'css/style.css' })
   eleventyConfig.addPassthroughCopy('img');
   eleventyConfig.addPassthroughCopy('webfonts');
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fortawesome/fontawesome-free/css/all.min.css': 'css/fontawesome.css' });
