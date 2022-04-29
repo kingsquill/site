@@ -16,6 +16,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode('version', function () {
     return now
   })
+  eleventyConfig.addFilter('take', function (value, count) {
+    return value.slice(0, count);
+  })
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (
