@@ -10,7 +10,7 @@
   <div class="max-w-lg mx-auto border-neutral-400 rounded">
     <h2 class="text-center py-5 text-5xl font-serif">Roadmap</h2>
     <ul class="p-5 pl-10 list-decimal">
-      {% for book in books | rejectattr("transcription") %}
+      {% for book in books | sort(true, false, "progress") | rejectattr("transcription") %}
         <li>
           <i class="fa-solid {% if book.done %}fa-square-check{% else %}fa-square{% endif %}"></i>
           <a href="/books/{{ book.title | slug }}/" class="underline">{{ book.title }}</a>
