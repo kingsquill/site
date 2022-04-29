@@ -4,15 +4,18 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url(/webfonts/Montserrat-VariableFont_wght.ttf);
+  src: url(/webfonts/Montserrat-VariableFont_wght.woff) format("woff"),
+    url(/webfonts/Montserrat-VariableFont_wght.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url(/webfonts/PlayfairDisplay-VariableFont_wght.ttf);
+  src: url(/webfonts/PlayfairDisplay-VariableFont_wght.woff) format("woff"),
+    url(/webfonts/PlayfairDisplay-VariableFont_wght.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Uncial Antiqua";
-  src: url(/webfonts/UncialAntiqua-Regular.ttf);
+  src: url(/webfonts/UncialAntiqua-Regular.woff) format("woff"),
+    url(/webfonts/UncialAntiqua-Regular.ttf) format("truetype");
 }
