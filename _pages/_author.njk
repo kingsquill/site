@@ -1,35 +1,42 @@
 ---
+layout:
 pagination:
   data: authors
   size: 1
   resolve: values
   alias: author
-permalink: "authors/{{ author.slug }}/"
+permalink: "authors/{{ author.name | slug }}/"
 ---
 
-<div class="flex flex-col md:flex-row">
-  {% if author.image %}
-  <img src="{{author.image}}" class="w-80 mx-auto md:mx-0" />
-  {% endif %}
-  <div class="p-0 md:p-5">
-    <h1>{{ author.name }}</h1>
-    <p class="">
-      {{ author.bio }}
-    </p>
-  </div>
-</div>
+{% extends "_includes/default.njk" %}
 
-<div>
-  <h2>Books</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4">
-    {% for book in books %}
-    {% if book.author == author.slug %}
-      {% if book.link %}
-        <a href="{{book.link}}">{{ book.title }}</a>
-      {% else %}
-        <span class="italic opacity-80">{{ book.title }}</span>
+{% block title %}
+King's Quill | {{ author.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="p-10 max-w-3xl mx-auto prose prose-invert prose-headings:font-serif prose-p:font-sans prose-h1:text-center">
+    <div class="flex flex-col md:flex-row">
+      {% if author.image %}
+        <img src="{{author.image}}" class="w-80 mx-auto md:mx-0"/>
       {% endif %}
-    {% endif %}
-    {% endfor %}
+      <div class="p-0 md:p-5">
+        <h1>{{ author.name }}</h1>
+        <p class="">
+          {{ author.bio }}
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h2>Books</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4">
+        {% for book in books | rejectattr("transcription") %}
+          {% if book.author == author.name %}
+            <a href="/books/{{book.title | slug}}">{{ book.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
   </div>
-</div>
+{% endblock %}

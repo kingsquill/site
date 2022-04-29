@@ -1,6 +1,6 @@
 ---
 permalink: "philosophy/"
-title: "Philosophy"
+pageTitle: "Philosophy"
 tags: [header]
 ---
 

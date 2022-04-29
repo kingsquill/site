@@ -1,6 +1,6 @@
 ---
 permalink: "contribute/"
-title: "Contribute"
+pageTitle: "Contribute"
 tags: [header]
 ---
 
