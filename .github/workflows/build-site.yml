@@ -22,7 +22,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./package-lock.json
     - run: npm ci
-    - run: npm run build
     - name: Fetch library stats
       uses: dawidd6/action-download-artifact@v2
       with:
@@ -32,6 +31,7 @@ jobs:
         name: stats
         path: _data
         repo: kingsquill/william-perkins
+    - run: npm run build
     - name: Publish site
       uses: actions/upload-artifact@v3
       with:
