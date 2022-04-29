@@ -1,0 +1,14 @@
+{% for page in collections.header %}
+  <a class="font-serif hover:underline block text-3xl md:text-xl mb-5 md:mb-0" href="{{page.url}}">
+    {{page.data.pageTitle}}
+  </a>
+{% endfor %}
+<div class="border-t-2 border-white/10 p-2 md:border-0 md:p-0">
+  {% for social in site.socials %}
+    {% if social.icon %}
+      <a class="text-3xl m-1" href="{{social.link}}">
+        <i class="fa-brands {{social.icon}}"></i>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>

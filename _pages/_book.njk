@@ -1,0 +1,55 @@
+---
+layout:
+pagination:
+  data: books
+  size: 1
+  alias: book
+permalink: "books/{{ book.title | slug }}/"
+---
+
+{% extends "_includes/default.njk" %}
+
+{% block title %}
+King's Quill | {{ book.title }}
+{% endblock %}
+
+{% block content %}
+  <div class="p-10 max-w-3xl mx-auto prose prose-invert prose-headings:font-serif prose-p:font-sans prose-h1:text-center">
+    <div>
+      <h1>{{ book.title }}</h1>
+      <p>{{ book.summary }}</p>
+      <div class="text-center">Status: {{ status }}</div>
+      <div class="relative w-1/2 h-8 leading-8 mx-auto bg-white/10 text-center font-bold">
+        <div class="absolute bg-white/10 h-8 w-[{{book.progress}}%]"></div>
+        {% if book.progress == 100 %}
+          Complete
+        {% elif book.progress == 0 %}
+          Not Started
+        {% else %}
+          In Progress
+        {% endif %}
+      </div>
+      {% if book.link %}
+        <div class="text-center p-2 m-2">
+          <a href="{{ book.link }}" class="p-2 m-2 border-2 border-white rounded no-underline hover:bg-white/10">Read Online</a>
+        </div>
+      {% endif %}
+    </div>
+
+    {% set author = authors[book.author] %}
+
+    <h2 class="text-center">About the Author</h2>
+
+    <div class="flex flex-col md:flex-row">
+      {% if author.image %}
+        <img src="{{author.image}}" class="w-80 mx-auto md:mx-0"/>
+      {% endif %}
+      <div class="p-0 md:p-5">
+        <h3><a href="/authors/{{author.name | slug}}/" class="no-underline">{{ author.name }}</a></h3>
+        <p class="">
+          {{ author.bio }}
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
