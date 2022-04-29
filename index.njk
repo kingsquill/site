@@ -10,14 +10,11 @@
   <div class="max-w-lg mx-auto border-neutral-400 rounded">
     <h2 class="text-center py-5 text-5xl font-serif">Roadmap</h2>
     <ul class="p-5 pl-10 list-decimal">
-      {% for book in roadmap %}
+      {% for book in books | rejectattr("transcription") %}
         <li>
           <i class="fa-solid {% if book.done %}fa-square-check{% else %}fa-square{% endif %}"></i>
-          {% if book.link %}
-            <a href="{{ book.link }}" class="underline">{{ book.title }} ({{ book.author }})</a>
-          {% else %}
-            {{ book.title }} ({{ book.author }})
-          {% endif %}
+          <a href="/books/{{ book.title | slug }}/" class="underline">{{ book.title }}</a>
+          (<a href="/authors/{{ book.author | slug }}/" class="underline">{{ book.author }}</a>)
         </li>
       {% endfor %}
     </ul>
