@@ -2,6 +2,7 @@
 permalink: "contribute/"
 pageTitle: "Contribute"
 tags: [header]
+description: As a volunteer project, we welcome your contributions.
 ---
 
 # How to Contribute

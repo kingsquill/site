@@ -6,13 +6,13 @@ pagination:
   resolve: values
   alias: author
 permalink: "authors/{{ author.name | slugify }}/"
+eleventyComputed:
+  description: "Author profile: {{ author.name }}"
+  pageTitle: "{{ author.name }}"
+  ogImage: "{{ author.image }}"
 ---
 
 {% extends "_includes/default.njk" %}
-
-{% block title %}
-King's Quill | {{ author.name }}
-{% endblock %}
 
 {% block content %}
   <div class="p-10 max-w-3xl mx-auto prose prose-invert prose-headings:font-serif prose-p:font-sans prose-h1:text-center">

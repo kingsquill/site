@@ -2,12 +2,9 @@
 <html lang="en">
   <head>
     <title>
-      {% block title %}King's Quill{% endblock %}
+      {% block title %}King's Quill {% if pageTitle %}| {{ pageTitle }}{% endif %}{% endblock %}
     </title>
     <meta charset="UTF-8"/>
-    {% if description %}
-      <meta name="description" content="{{description}}"/>
-    {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -23,10 +20,21 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <meta property="og:image" content="https://kingsquill.org/{%- block ogImage -%}img/ogimage.png{%- endblock -%}">
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+      <meta property="og:description" content="{{description}}">
+    {% endif %}
+    <meta property="og:image" content="https://kingsquill.org/{{ ogImage | default('img/ogimage.png') }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kingsquill.org{{ page.url }}">
+    {% if pageTitle %}
+    <meta property="og:title" content="{{ pageTitle }}">
+    {% else %}
+    <meta property="og:title" content="King's Quill">
+    {% endif %}
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#171717">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">

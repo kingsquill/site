@@ -2,6 +2,7 @@
 permalink: "philosophy/"
 pageTitle: "Philosophy"
 tags: [header]
+description: "We want to give you a faithful copy of the author's works in a format you can read and understand."
 ---
 
 # Publishing Philosophy
