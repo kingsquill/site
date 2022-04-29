@@ -1,6 +1,3 @@
 _site
 node_modules
 _tmp
-
-# Loaded dynamically at build time
-_data/books.json
