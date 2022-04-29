@@ -1,5 +1,9 @@
 {% extends "_includes/default.njk" %}
 
+{% if ogImage %}
+  {%- block ogImage -%}{{ ogImage }}{%- endblock -%}
+{% endif %}
+
 {% if pageTitle %}
   {% block title %}King's Quill | {{ pageTitle }}
   {% endblock %}

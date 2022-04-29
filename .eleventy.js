@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('CNAME');
   eleventyConfig.addPassthroughCopy({ '_tmp/style.css': 'css/style.css' })
   eleventyConfig.addPassthroughCopy('img');
+  eleventyConfig.addPassthroughCopy({ 'favicon': '/' });
   eleventyConfig.addPassthroughCopy('webfonts');
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fortawesome/fontawesome-free/css/all.min.css': 'css/fontawesome.css' });
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fortawesome/fontawesome-free/webfonts': 'webfonts' });
