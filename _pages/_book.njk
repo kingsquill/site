@@ -4,7 +4,7 @@ pagination:
   data: books
   size: 1
   alias: book
-permalink: "books/{{ book.title | slug }}/"
+permalink: "books/{{ book.title | slugify }}/"
 ---
 
 {% extends "_includes/default.njk" %}
@@ -45,7 +45,7 @@ King's Quill | {{ book.title }}
         <img src="{{author.image}}" class="w-80 mx-auto md:mx-0"/>
       {% endif %}
       <div class="p-0 md:p-5">
-        <h3><a href="/authors/{{author.name | slug}}/" class="no-underline">{{ author.name }}</a></h3>
+        <h3><a href="/authors/{{author.name | slugify}}/" class="no-underline">{{ author.name }}</a></h3>
         <p class="">
           {{ author.bio }}
         </p>

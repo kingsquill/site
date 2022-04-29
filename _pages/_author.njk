@@ -5,7 +5,7 @@ pagination:
   size: 1
   resolve: values
   alias: author
-permalink: "authors/{{ author.name | slug }}/"
+permalink: "authors/{{ author.name | slugify }}/"
 ---
 
 {% extends "_includes/default.njk" %}
@@ -33,7 +33,7 @@ King's Quill | {{ author.name }}
       <div class="grid grid-cols-2 md:grid-cols-4">
         {% for book in books | rejectattr("transcription") %}
           {% if book.author == author.name %}
-            <a href="/books/{{book.title | slug}}">{{ book.title }}</a>
+            <a href="/books/{{book.title | slugify}}">{{ book.title }}</a>
           {% endif %}
         {% endfor %}
       </div>
