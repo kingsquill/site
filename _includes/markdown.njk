@@ -1,7 +1,9 @@
 {% extends "_includes/default.njk" %}
 
+{% if title %}{% block title %}King's Quill | {{ title }}{% endblock %}{% endif %}
+
 {% block content %}
-  <div class="px-10 max-w-3xl mx-auto">
+  <div class="p-10 max-w-3xl mx-auto prose prose-invert prose-headings:font-serif prose-p:font-sans prose-h1:text-center">
     {{ content | safe }}
   </div>
 {% endblock %}

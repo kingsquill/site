@@ -1,0 +1,32 @@
+---
+pagination:
+  data: books
+  size: 1
+  alias: book
+permalink: "books/{{ book.title | slug }}/"
+---
+
+<div>
+  <h1>{{ book.title }}</h1>
+  <p>{{ book.summary }}</p>
+  <div class="text-center">Status: {{ status }}</div>
+  <div class="width-full">
+    <div style="bg-white/20 width-[{{book.progress}}%]"></div>
+  </div>
+</div>
+
+{% set author = authors [ book.author ] %}
+
+<h2 class="text-center">About the Author</h2>
+
+<div class="flex flex-col md:flex-row">
+  {% if author.image %}
+  <img src="{{author.image}}" class="w-80 mx-auto md:mx-0" />
+  {% endif %}
+  <div class="p-0 md:p-5">
+    <h3>{{ author.name }}</h3>
+    <p class="">
+      {{ author.bio }}
+    </p>
+  </div>
+</div>

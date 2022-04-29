@@ -12,30 +12,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}?v={% version %}"/>
     <link rel="stylesheet" href="{{ '/css/fontawesome.css' | url }}">
+    <script src="//unpkg.com/alpinejs" defer></script>
     {% block head %}{% endblock %}
   </head>
   <body class="{% block backgroundImage %}bg-home{% endblock %} bg-top bg-cover bg-fixed">
-    <div class="container mx-auto bg-neutral-900/95 min-h-screen text-white text-xl">
-      <header class="flex p-4 content-center justify-between">
+    <div class="container mx-auto bg-neutral-900/95 min-h-screen text-white text-xl p-px flex flex-col">
+      <header x-data="{ menuOpen: false }" class="relative flex p-4 items-center justify-between border-b-2 border-white/10 flex-none">
         <a href="/" class="font-heading text-4xl">KQ</a>
-        <div class="flex items-center">
-          {% for page in collections.header %}
-          <a class="p-2 m-2 font-serif hover:underline" href="{{page.url}}">
-            {{page.data.title}}
-          </a>
-          {% endfor %}
-          {% for social in site.socials %}
-            {% if social.icon %}
-              <a class="p-2 m-2" href="{{social.link}}">
-                <i class="fa-brands {{social.icon}}"></i>
-              </a>
-            {% endif %}
-          {% endfor %}
+        <button @click="menuOpen = !menuOpen" class="md:hidden relative">
+          <i class="text-4xl fa-solid fa-bars"></i>
+        </button>
+        <div x-show="menuOpen" class="md:hidden container absolute flex flex-col items-end top-full w-screen right-0 border-2 border-white/10 bg-neutral-900/95 p-5">
+          <!-- Mobile menu -->
+          {% include "nav.njk" %}
+        </div>
+        <div class="hidden md:flex items-center justify-end space-x-4">
+          <!-- Desktop menu -->
+          {% include "nav.njk" %}
         </div>
       </header>
+      <main class="flex-1">
       {% block content %}
         {{ content | safe }}
       {% endblock %}
+      </main>
+      <footer class="text-base text-right mt-5 p-5 border-t-2 border-white/10 flex-none">
+        Christ's College: <a href="http://www.royan.com.ar">© Jorge Royan / CC BY-SA 3.0</a>
+      </footer>
     </div>
   </body>
 </html>

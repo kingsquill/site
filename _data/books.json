@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Six Principles",
+    "author": "william-perkins",
+    "link": "/books/six-principles",
+    "summary": "",
+    "done": true,
+    "progress": 100
+  },
+  {
+    "title": "The Golden Chain",
+    "author": "william-perkins",
+    "summary": "",
+    "done": false,
+    "progress": 0
+  }
+]
