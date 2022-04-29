@@ -28,7 +28,6 @@ jobs:
       with:
         github_token: ${{ secrets.LIBRARY_ACCESS_TOKEN }}
         workflow: build-site.yml
-        workflow_conclusion: success
         branch: master
         name: stats
         path: _data
