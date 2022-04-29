@@ -23,6 +23,16 @@ jobs:
         cache-dependency-path: ./package-lock.json
     - run: npm ci
     - run: npm run build
+    - name: Fetch library stats
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        name: ${{ secrets.LIBRARY_ACCESS_TOKEN }}
+        workflow: build-site.yml
+        workflow_conclusion: success
+        branch: master
+        name: artifact_name
+        path: _data
+        repo: kingsquill/william-perkins
     - name: Publish site
       uses: actions/upload-artifact@v3
       with:
